@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forge Quest — Forge Intell AI</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- SCREENS -->
+  <div id="screen-home" class="screen active">
+    <div class="home-bg">
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b3"></div>
+      <div class="bubble b4"></div>
+    </div>
+    <div class="home-content">
+      <div class="brand-logo">
+        <div class="gear-icon">⚙️</div>
+        <div class="brand-text">
+          <span class="brand-name">Forge Quest</span>
+          <span class="brand-sub">by Forge Intell AI</span>
+        </div>
+      </div>
+
+      <div class="stats-bar" id="home-stats">
+        <!-- filled by JS -->
+      </div>
+
+      <div class="money-display" id="money-display">
+        <span class="money-label">Total Earned</span>
+        <span class="money-value" id="total-money">$0</span>
+      </div>
+
+      <div class="level-trail" id="level-trail">
+        <!-- level nodes filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL DETAIL SCREEN -->
+  <div id="screen-level" class="screen">
+    <div class="level-bg">
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+    </div>
+    <button class="back-btn" onclick="goHome()">← Home</button>
+    <div class="level-detail" id="level-detail-content">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <!-- COMPLETE CELEBRATION SCREEN -->
+  <div id="screen-complete" class="screen">
+    <div class="complete-bg"></div>
+    <div class="complete-content">
+      <div class="complete-emoji" id="complete-emoji">🏆</div>
+      <h2 class="complete-title" id="complete-title">Level Complete!</h2>
+      <p class="complete-sub" id="complete-sub"></p>
+      <div class="stat-gains" id="stat-gains"></div>
+      <button class="btn-primary" onclick="goHome()">Back to Map</button>
+    </div>
+  </div>
+
+  <!-- TASK COMPLETE MODAL -->
+  <div id="task-modal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-emoji" id="modal-emoji">✅</div>
+      <h3 id="modal-title">Task Complete!</h3>
+      <p id="modal-body"></p>
+      <div id="modal-stats"></div>
+      <button class="btn-primary" onclick="closeModal()">Awesome!</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
