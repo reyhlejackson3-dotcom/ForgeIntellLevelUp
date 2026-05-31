@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Denver Dustless Floor Leveling</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#15191c;--slate-2:#1d2327;--charcoal:#2a2f33;--snow:#f5f2ec;
+  --concrete:#9b958a;--concrete-dim:#6f6b62;--gold:#d6a14a;--gold-deep:#b9863a;
+  --pine:#3f4f3e;--line:rgba(245,242,236,.12);--maxw:1180px;
+  --serif:'Cinzel',serif;--accent:'Cormorant Garamond',serif;
+  --sans:'Schibsted Grotesk',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--slate);color:var(--snow);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--slate)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:.01em}
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:200;display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(20px,5vw,52px);transition:background .4s,padding .4s,box-shadow .4s;
+  background:linear-gradient(180deg,rgba(8,11,14,.7),rgba(8,11,14,0))}
+nav.solid{background:rgba(17,21,24,.93);backdrop-filter:blur(12px);padding:12px clamp(20px,5vw,52px);box-shadow:0 1px 0 var(--line),0 18px 40px -28px rgba(0,0,0,.8)}
+.nav-logo img{height:48px;width:auto;transition:height .4s;filter:drop-shadow(0 2px 10px rgba(0,0,0,.55))}
+nav.solid .nav-logo img{height:38px}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{font-size:.83rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:10px 16px;border-radius:2px;color:var(--snow);opacity:.82;transition:opacity .25s,color .25s}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav-links a.active{color:var(--gold);opacity:1}
+.nav-cta{margin-left:10px;border:1px solid var(--gold);color:var(--gold)!important;opacity:1!important;transition:background .3s,color .3s!important}
+.nav-cta:hover{background:var(--gold);color:var(--slate)!important}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
+.nav-toggle span{width:26px;height:2px;background:var(--snow);transition:.3s}
+
+/* buttons */
+.btn{display:inline-block;cursor:pointer;font-family:var(--sans);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;
+  padding:16px 34px;border:0;border-radius:2px;background:var(--gold);color:var(--slate);transition:transform .25s,background .25s,box-shadow .25s;
+  box-shadow:0 14px 34px -14px rgba(214,161,74,.7)}
+.btn:hover{transform:translateY(-3px);background:#e6b15c}
+.btn.ghost{background:transparent;border:1px solid var(--snow);color:var(--snow);box-shadow:none}
+.btn.ghost:hover{background:var(--snow);color:var(--slate)}
+
+/* JOURNEY 3D */
+#journey{position:relative;height:660vh}
+.sticky-stage{position:sticky;top:0;height:100vh;overflow:hidden}
+#scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage-vignette{position:absolute;inset:0;pointer-events:none;z-index:5;background:radial-gradient(125% 95% at 50% 40%,transparent 45%,rgba(8,11,14,.4) 100%)}
+.overlay{position:absolute;inset:0;z-index:10;display:flex;align-items:center;padding:0 clamp(20px,7vw,90px);pointer-events:none}
+.overlay .inner{max-width:720px;opacity:0;transform:translateY(34px)}
+.overlay.center{justify-content:center;text-align:center}
+.overlay.center .inner{margin:0 auto}
+/* black, high-legibility journey text */
+.overlay .inner{color:#111417}
+.overlay h1,.overlay h2{color:#111417;text-shadow:0 1px 2px rgba(245,242,236,.6),0 2px 26px rgba(245,242,236,.7)}
+.overlay .sub,.overlay .lede p,.overlay .trust-item p{color:#1b1f22;text-shadow:0 1px 14px rgba(245,242,236,.85)}
+.eyebrow{font-family:var(--sans);font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:#7a5212;margin-bottom:22px;font-weight:700;text-shadow:0 1px 12px rgba(245,242,236,.8)}
+.hero-logo{width:min(420px,68vw);margin:0 auto 30px;filter:drop-shadow(0 6px 22px rgba(245,242,236,.55))}
+.hero h1{font-size:clamp(2.6rem,6vw,5rem)}
+.hero h1 em{font-family:var(--accent);font-style:italic;font-weight:600;color:#8a5e1a;text-transform:none;letter-spacing:0;text-shadow:0 1px 14px rgba(245,242,236,.8)}
+.hero .sub{font-size:clamp(1.05rem,2vw,1.3rem);margin-top:22px;max-width:40ch;margin-left:auto;margin-right:auto}
+.overlay .btn{margin-top:32px;pointer-events:auto}
+.overlay .btn.ghost{border-color:#16181b;color:#111417}
+.overlay .btn.ghost:hover{background:#16181b;color:var(--snow)}
+.trust-grid{display:flex;gap:clamp(20px,5vw,64px);flex-wrap:wrap;justify-content:center}
+.trust-item{max-width:230px;text-align:center}
+.trust-item .ic{width:72px;height:72px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid #8a5e1a;background:rgba(245,242,236,.55)}
+.trust-item .ic svg{width:34px;height:34px;stroke:#7a5212;fill:none;stroke-width:1.7}
+.trust-item h3{font-size:1.15rem;letter-spacing:.04em;margin-bottom:8px;color:#111417;text-shadow:0 1px 12px rgba(245,242,236,.85)}
+.lede h2{font-size:clamp(2rem,4.4vw,3.4rem)}
+.lede p{font-size:1.1rem;margin-top:18px;max-width:48ch}
+.overlay.center .lede p{margin-left:auto;margin-right:auto}
+.teaser-strip{display:flex;gap:14px;margin-top:28px;justify-content:center;flex-wrap:wrap}
+.teaser-strip .ph{width:140px;height:96px;border-radius:3px;border:1px solid rgba(20,23,26,.35);background:linear-gradient(135deg,rgba(245,242,236,.7),rgba(245,242,236,.4));
+  display:flex;align-items:center;justify-content:center;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#3a3a36;box-shadow:0 18px 30px -20px rgba(0,0,0,.5)}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:11;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:#16181b;
+  display:flex;flex-direction:column;align-items:center;gap:10px;transition:opacity .4s;text-shadow:0 1px 10px rgba(245,242,236,.8)}
+.scroll-hint .mouse{width:22px;height:36px;border:1.5px solid #16181b;border-radius:12px;position:relative}
+.scroll-hint .mouse::after{content:"";position:absolute;top:7px;left:50%;width:3px;height:7px;background:#16181b;border-radius:2px;transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:1;top:7px}70%{opacity:0;top:18px}100%{opacity:0}}
+
+/* SECTIONS */
+.section{position:relative;padding:clamp(80px,11vw,150px) clamp(20px,5vw,52px)}
+.wrap{max-width:var(--maxw);margin:0 auto}
+.section.alt{background:var(--slate-2)}
+.topo::before{content:"";position:absolute;inset:0;opacity:.06;pointer-events:none;background-size:560px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23d6a14a' stroke-width='1'%3E%3Cpath d='M-20 120 Q120 40 220 120 T440 110'/%3E%3Cpath d='M-20 160 Q120 90 220 160 T440 150'/%3E%3Cpath d='M-20 210 Q140 140 230 210 T440 205'/%3E%3Cpath d='M-20 270 Q120 200 240 270 T440 260'/%3E%3Cpath d='M-20 330 Q140 270 240 330 T440 320'/%3E%3C/g%3E%3C/svg%3E")}
+.section-head{max-width:660px;margin-bottom:clamp(40px,6vw,72px)}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.kicker{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;display:block;margin-bottom:18px}
+.section-head h2{font-size:clamp(2.1rem,4.6vw,3.5rem)}
+.section-head h2 em,.page-hero h1 em{font-family:var(--accent);font-style:italic;color:var(--gold);text-transform:none}
+.section-head p{margin-top:20px;color:var(--concrete);font-size:1.08rem}
+
+/* page hero (subpages) */
+.page-hero{position:relative;padding:clamp(150px,18vh,210px) clamp(20px,5vw,52px) clamp(60px,8vw,100px);overflow:hidden;
+  background:radial-gradient(120% 130% at 80% -10%,rgba(214,161,74,.16),transparent 55%),linear-gradient(180deg,#10161a,#181f23)}
+.page-hero .wrap{max-width:var(--maxw);margin:0 auto}
+.page-hero h1{font-size:clamp(2.6rem,6vw,4.6rem);max-width:18ch}
+.page-hero p{margin-top:22px;color:var(--concrete);font-size:1.12rem;max-width:54ch}
+.page-hero .mtn{position:absolute;bottom:-2px;left:0;width:100%;height:120px;opacity:.5}
+
+/* services */
+.svc-feature{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.svc-copy h3{font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:18px}
+.svc-copy p{color:var(--concrete);margin-bottom:16px;font-size:1.05rem}
+.svc-visual{aspect-ratio:4/5;border-radius:4px;border:1px solid var(--line);background:linear-gradient(150deg,#2f3730,#1b2023);display:flex;align-items:center;justify-content:center;color:var(--concrete-dim);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;position:relative;overflow:hidden}
+.svc-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 70% 20%,rgba(214,161,74,.14),transparent)}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(56px,7vw,88px)}
+.step{padding:28px 24px;border:1px solid var(--line);border-radius:4px;background:rgba(255,255,255,.015);transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-5px);border-color:rgba(214,161,74,.4)}
+.step .num{font-family:var(--serif);font-size:1.4rem;color:var(--gold);margin-bottom:14px}
+.step h4{font-size:1.05rem;letter-spacing:.04em;margin-bottom:10px;font-family:var(--sans);font-weight:600}
+.step p{font-size:.9rem;color:var(--concrete)}
+
+/* gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ba{position:relative;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr}
+.ba-pair .cell{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--concrete);position:relative}
+.ba-pair .before{background:linear-gradient(135deg,#3a302a,#241d19)}
+.ba-pair .after{background:linear-gradient(135deg,#2c3730,#1a221d)}
+.ba-pair .cell span{position:absolute;top:10px;left:10px;font-weight:600;color:var(--snow);opacity:.85}
+.ba-cap{padding:14px 16px;font-size:.85rem;color:var(--concrete);background:rgba(0,0,0,.2);border-top:1px solid var(--line)}
+.gallery-note{margin-top:32px;font-size:.85rem;color:var(--concrete-dim);text-align:center}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,80px);align-items:start}
+.about-copy p{color:var(--concrete);margin-bottom:18px;font-size:1.07rem}
+.about-copy p strong{color:var(--snow);font-weight:600}
+.stat-row{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap}
+.stat .n{font-family:var(--serif);font-size:2.4rem;color:var(--gold)}
+.stat .l{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--concrete)}
+.area-card{border:1px solid var(--line);border-radius:4px;padding:38px 34px;background:linear-gradient(160deg,rgba(214,161,74,.08),rgba(255,255,255,.01))}
+.area-card h3{font-size:1.5rem;margin-bottom:14px}
+.area-card h3 em{font-family:var(--accent);font-style:italic;color:var(--gold)}
+.area-card p{color:var(--concrete);font-size:1rem;margin-bottom:20px}
+.area-card .chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.74rem;letter-spacing:.08em;padding:7px 13px;border:1px solid var(--line);border-radius:40px;color:var(--snow);opacity:.8}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,80px)}
+.contact-info h3{font-size:1.9rem;margin-bottom:20px}
+.contact-info h3 em{font-family:var(--accent);font-style:italic;color:var(--gold)}
+.contact-info p{color:var(--concrete);margin-bottom:28px}
+.contact-line{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.contact-line .ic{width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-line .ic svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.contact-line .lbl{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--concrete);display:block}
+.contact-line .val{font-size:1.05rem;color:var(--snow)}
+form{display:grid;gap:18px}
+.field{display:grid;gap:8px}
+.field label{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--concrete)}
+.field input,.field textarea{font-family:var(--sans);font-size:1rem;color:var(--snow);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:3px;padding:14px 16px;transition:border-color .25s,background .25s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:rgba(214,161,74,.05)}
+.field textarea{resize:vertical;min-height:130px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+form .btn{margin-top:6px;border:0;width:fit-content}
+
+/* CTA strip */
+.cta-strip{background:linear-gradient(160deg,#181f23,#11161a);border-top:1px solid var(--line);text-align:center;padding:clamp(70px,9vw,110px) 24px}
+.cta-strip h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:14px}
+.cta-strip h2 em{font-family:var(--accent);font-style:italic;color:var(--gold)}
+.cta-strip p{color:var(--concrete);margin-bottom:30px}
+
+/* footer */
+footer{background:#0e1215;padding:60px clamp(20px,5vw,52px) 40px;border-top:1px solid var(--line)}
+.foot-grid{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.foot-grid img{height:54px}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--concrete);transition:color .25s}
+.foot-links a:hover{color:var(--gold)}
+.foot-bottom{max-width:var(--maxw);margin:34px auto 0;padding-top:24px;border-top:1px solid var(--line);font-size:.78rem;color:var(--concrete-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .nav-links{position:fixed;top:0;right:0;height:100vh;width:min(78vw,320px);flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;background:rgba(15,18,21,.97);backdrop-filter:blur(14px);padding:40px;transform:translateX(100%);transition:transform .4s}
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:1rem;padding:14px 0}
+  .nav-cta{margin-left:0;margin-top:10px}
+  .nav-toggle{display:flex;z-index:210}
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .svc-feature,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .field-row{grid-template-columns:1fr}
+  #journey{height:600vh}
+}
+@media(max-width:560px){.process,.gallery-grid{grid-template-columns:1fr}.overlay{padding:0 22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scroll-hint .mouse::after{animation:none}}
+</style></head><body>
+<nav id="nav">
+  <a class="nav-logo" href="index.html" aria-label="Denver Dustless Floor Leveling home"><img src="logo-white.png" alt="Denver Dustless Floor Leveling"></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navLinks">
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link active">Contact</a>
+    <a href="contact.html" class="nav-cta">Free Estimate</a>
+  </div>
+</nav>
+<header class="page-hero"><div class="wrap">
+  <span class="kicker">Get In Touch</span>
+  <h1>Request your <em>free estimate</em>.</h1>
+  <p>Tell us about your floor and we'll get back to you with a no-pressure quote. Serving all of Colorado.</p>
+</div><svg class="mtn" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#d6a14a" fill-opacity="0.18" d="M0 120 L210 38 L330 78 L520 12 L700 70 L880 26 L1080 72 L1260 30 L1440 86 L1440 120Z"/></svg></header>
+<section class="section topo"><div class="wrap contact-grid">
+  <div class="contact-info">
+    <div class="contact-line reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg></div><div><span class="lbl">Call or Text</span><span class="val">(XXX) XXX-XXXX</span></div></div>
+    <div class="contact-line reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 6l8 6 8-6"/></svg></div><div><span class="lbl">Email</span><span class="val">hello@denverdustless.com</span></div></div>
+    <div class="contact-line reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><span class="lbl">Service Area</span><span class="val">All of Colorado</span></div></div>
+  </div>
+  <form class="reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <div class="field-row">
+      <div class="field"><label for="name">Name</label><input id="name" type="text" name="name" required></div>
+      <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" name="phone"></div>
+    </div>
+    <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" required></div>
+    <div class="field"><label for="city">City / Project Location</label><input id="city" type="text" name="city"></div>
+    <div class="field"><label for="message">Tell us about your floor</label><textarea id="message" name="message" required></textarea></div>
+    <button type="submit" class="btn">Send Request</button>
+  </form>
+</div></section>
+<footer>
+  <div class="foot-grid">
+    <img src="logo-white.png" alt="Denver Dustless Floor Leveling">
+    <div class="foot-links"><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+  </div>
+  <div class="foot-bottom"><span>&copy; <span id="yr"></span> Denver Dustless Floor Leveling &mdash; Serving All of Colorado</span><span>Licensed &amp; Insured &middot; 100% Dustless</span></div>
+</footer>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const nav=document.getElementById('nav'),navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',()=>{navToggle.classList.toggle('open');navLinks.classList.toggle('open');});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navToggle.classList.remove('open');navLinks.classList.remove('open');}));
+window.addEventListener('scroll',()=>{nav.classList.toggle('solid',window.scrollY>40);});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.16});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body></html>
